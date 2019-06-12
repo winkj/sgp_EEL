@@ -1,0 +1,73 @@
+{
+	"libName": "sgpi2c",
+	"manufacturer": "Sensirion",
+	"description": "SGP Series",
+	"type": "Air Quality Sensor",
+	"icon": "",
+	"image": "",
+	"version": "",
+	"eelVersion": "1",
+	"shoppingCartLinks":{
+		"digikey":{
+			"links":{
+				"info":"https://www.digikey.com/product-detail/en/sensirion-ag/SGP30-2.5K/1649-1084-1-ND/7400967"
+			},
+
+			"cartData":{
+				"part":"1649-1084-1-ND",
+				"partid":"7400967",
+				"source":"dkstudio",
+				"qty":"1"
+			}
+		}
+	},
+	"requires": [
+		"embedded", "i2c"
+	],
+	"elements": [
+		{
+			"name": "SensirionSGPI2C",
+			"type": "EmbeddedSensirionSGPI2C",
+			"icon": "EmbeddedAirQuality.svg",
+			"defaultAbility": "readTVoc",
+			"defaultTrigger": "tVocRead",
+			"hidden": false,
+
+			"abilities": [
+				{
+					"name": "setup",
+					"hidden":true
+				},
+				{
+					"name": "readTVoc",
+					"triggers": ["tVocRead"]
+				},
+				{
+					"name": "readCo2eq",
+					"triggers": ["co2eqRead"]
+				}
+
+			],
+			"properties":[
+				{
+					"name":"i2cInstance",
+					"input": "driverInstance",
+					"driverType": "i2c"
+				}
+			],
+			"triggers": [],
+			"variables": [],
+			"language": {
+				"en-US": {
+					"EmbeddedSensirionSGPI2C": "Sensirion SGP",
+					"i2cInstance": "I2C Driver Instance",
+					"readTVoc": "Read Total VOC",
+					"tVocRead": "Total VOC Read",
+					"readCo2eq": "Read CO2 equivalent",
+					"co2eqRead": "CO2 equivalent Read",
+					"setup": "Setup"
+				}
+			}
+		}
+	]
+}
